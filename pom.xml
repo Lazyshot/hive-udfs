@@ -2,12 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.louddoor</groupId>
   <artifactId>hive-udfs</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <dependencies>
   	<dependency>
   		<groupId>org.apache.hive</groupId>
   		<artifactId>hive-common</artifactId>
-  		<version>0.8.1</version>
+  		<version>0.9.0</version>
   	</dependency>
   	<dependency>
   		<groupId>org.apache.hadoop</groupId>
@@ -17,7 +17,7 @@
   	<dependency>
   		<groupId>org.apache.hive</groupId>
   		<artifactId>hive-exec</artifactId>
-  		<version>0.8.1</version>
+  		<version>0.9.0</version>
   	</dependency>
   	<dependency>
   		<groupId>javax.jdo</groupId>
