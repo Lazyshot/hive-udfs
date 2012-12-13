@@ -1,0 +1,12 @@
+<ivy-module version="2.0">
+  <info organisation="com.louddoor"
+        module="hive-udfs"
+        />
+  <dependencies>
+  	<dependency org="org.apache.hadoop" name="hadoop-core" rev="1.1.1" />
+	<dependency org="javax.jdo" name="jdo2-api" rev="2.3-20090302111651" />
+	<dependency org="org.apache.hive" name="hive-exec" rev="0.8.1" />
+  	<dependency org="org.apache.hive" name="hive-common" rev="0.8.1" />
+  	<dependency org="org.apache.hive" name="hive-pdk" rev="0.8.1" />
+  </dependencies>
+</ivy-module>

@@ -7,22 +7,27 @@
   	<dependency>
   		<groupId>org.apache.hive</groupId>
   		<artifactId>hive-common</artifactId>
-  		<version>0.9.0</version>
+  		<version>0.8.1</version>
   	</dependency>
   	<dependency>
   		<groupId>org.apache.hadoop</groupId>
   		<artifactId>hadoop-core</artifactId>
-  		<version>1.0.1</version>
+  		<version>1.1.1</version>
   	</dependency>
   	<dependency>
   		<groupId>org.apache.hive</groupId>
   		<artifactId>hive-exec</artifactId>
-  		<version>0.9.0</version>
+  		<version>0.8.1</version>
   	</dependency>
   	<dependency>
   		<groupId>javax.jdo</groupId>
   		<artifactId>jdo2-api</artifactId>
   		<version>2.3-eb</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.hive</groupId>
+  		<artifactId>hive-pdk</artifactId>
+  		<version>0.8.1</version>
   	</dependency>
   </dependencies>
 </project>
