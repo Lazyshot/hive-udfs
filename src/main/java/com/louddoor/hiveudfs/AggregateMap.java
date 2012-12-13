@@ -14,11 +14,11 @@ public class AggregateMap extends UDAF {
 		private HashMap<Object, Object> mapRes;
 	}
 	
-	public static class ProductEvaluator implements UDAFEvaluator {
+	public static class AggregateMapEvaluator implements UDAFEvaluator {
 		
 		MapState state;
 
-		public ProductEvaluator() {
+		public AggregateMapEvaluator() {
 			super();
 			state = new MapState();
 			init();
