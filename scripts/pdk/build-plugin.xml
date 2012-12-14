@@ -17,7 +17,7 @@
    limitations under the License.
 -->
 
-<project name="hive-plugin-import" default="intended-for-import-only">
+<project name="hive-plugin-import" default="intended-for-import-only" xmlns:ivy="antlib:org.apache.ivy.ant">
   <dirname property="pdk.script.dir" file="${ant.file.hive-plugin-import}"/>
   <property name="plugin.dir" location="${basedir}"/>
   <property name="src.dir" location="${plugin.dir}/src"/>
