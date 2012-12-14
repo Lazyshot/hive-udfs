@@ -32,10 +32,11 @@ import org.apache.hive.pdk.HivePdkUnitTest;
 			}
 		)
 public class ArrayIntersect extends UDF {
-	private List<String> result = new ArrayList<String>();
+	
 	
 	public String[] evaluate(final String[] first, final String[] second)
 	{
+		List<String> result = new ArrayList<String>();
 		Set<String> canAdd = new HashSet<String>(Arrays.asList(first));
 		result.clear();
 		
@@ -51,17 +52,18 @@ public class ArrayIntersect extends UDF {
 	
 	public Integer[] evaluate(final Integer[] first, final Integer[] second)
 	{
+		List<Integer> result = new ArrayList<Integer>();
 		Set<Integer> canAdd = new HashSet<Integer>(Arrays.asList(first));
 		result.clear();
 		
-		for (String b : second) {
+		for (Integer b : second) {
 			if (canAdd.contains(b)) {
 				canAdd.remove(b);
 				result.add(b);
 			}
 		}
 		
-		return result.toArray(new String[0]);
+		return result.toArray(new Integer[0]);
 	}
 	
 }
