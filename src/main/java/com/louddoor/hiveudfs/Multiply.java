@@ -1,6 +1,5 @@
 package com.louddoor.hiveudfs;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.hadoop.hive.ql.exec.Description;
@@ -17,7 +16,6 @@ import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspector.Category;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspectorConverters;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspectorConverters.Converter;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspectorFactory;
-import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspectorUtils;
 
 @Description(name="multiply",value="_FUNC_(val) - Multiples the values of a list")
 public class Multiply extends GenericUDF {
@@ -60,6 +58,7 @@ public class Multiply extends GenericUDF {
 		return ObjectInspectorFactory.getStandardListObjectInspector(returnOI);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Double evaluate(DeferredObject[] args) {
 		Double d = 1d;
@@ -72,8 +71,7 @@ public class Multiply extends GenericUDF {
 		try {
 			array = args[0].get();
 			ListObjectInspector arrayOI = (ListObjectInspector) argumentOIs[0];
-			List retArray = (List) arrayOI.getList(array);
-			final ObjectInspector valInspector = arrayOI.getListElementObjectInspector();
+			List<Object> retArray = (List<Object>) arrayOI.getList(array);
 			
 			for (int i = 0; i < retArray.size(); i++) {
 				converters[0].convert(retArray.get(i)); 

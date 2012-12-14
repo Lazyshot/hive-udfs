@@ -31,7 +31,6 @@
 
   <property environment="env"/>
   <property name="hadoop.home" value="${env.HADOOP_HOME}"/>
-
   <path id="plugin.classpath">
     <fileset dir="${install.dir}" includes="lib/hive-exec-*.jar"/>
     <fileset dir="${install.dir}" includes="lib/hive-pdk-*.jar"/>
@@ -47,8 +46,10 @@
     <fileset dir="${hadoop.home}" includes="hadoop-*-core.jar"/>
     <fileset dir="${build.dir}" includes="${plugin.jar.basename}"/>
   </path>
-
-  <target name="compile">
+  <target name="resolve">
+      <ivy:retrieve />
+  </target>
+  <target name="compile" depends="resolve">
     <mkdir dir="${build.classes}"/>
     <javac
        srcdir="${src.dir}"

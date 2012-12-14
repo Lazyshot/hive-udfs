@@ -15,10 +15,10 @@ import org.apache.hive.pdk.HivePdkUnitTest;
 		cleanup = "drop table if exists dual_data;",
 		cases = {
 				@HivePdkUnitTest(
-					query = "SELECT array_intersect(array(1,2,3,4), array(2,4)) FROM onerow;",
+					query = "SELECT ld_array_intersect(array(1,2,3,4), array(2,4)) FROM onerow;",
 					result = ""),
 				@HivePdkUnitTest(
-					query = "SELECT array_intersect(array(1,2,3), array(4,5)) FROM onerow;",
+					query = "SELECT ld_array_intersect(array(1,2,3), array(4,5)) FROM onerow;",
 					result = "")
 			}
 		)

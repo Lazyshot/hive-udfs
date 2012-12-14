@@ -1,8 +1,8 @@
 <project xmlns:ivy="antlib:org.apache.ivy.ant" name="hiveUdfs" basedir="." default="build">
-	<property name="plugin.libname" value="pdk-test-udf"/>
-  	<property name="plugin.title" value="Hive PDK Test UDF Library"/>
+	<property name="plugin.libname" value="hive-udfs"/>
+  	<property name="plugin.title" value="LoudDoor Hive UDFs"/>
 	<property name="plugin.version" value="0.1"/>
-	<property name="plugin.vendor" value="Apache Software Foundation"/>
-	<property name="function.sql.prefix" value="tp_"/>
+	<property name="plugin.vendor" value="LoudDoor"/>
+	<property name="function.sql.prefix" value="ld_"/>
 	<import file="scripts/pdk/build-plugin.xml"/>
 </project>
