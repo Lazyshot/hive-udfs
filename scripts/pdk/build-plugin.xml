@@ -42,7 +42,6 @@
     <fileset dir="${install.dir}" includes="lib/*.jar"/>
     <fileset dir="${hadoop.home}" includes="hadoop-*-core.jar"/>
     <fileset dir="${build.dir}" includes="${plugin.jar.basename}"/>
-    <exclude name="lib/ant*" />
   </path>
   
   <target name="resolve">
