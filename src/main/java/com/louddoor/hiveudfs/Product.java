@@ -13,7 +13,7 @@ import org.apache.hive.pdk.HivePdkUnitTests;
 		cases = {
 				@HivePdkUnitTest(
 					query = "SELECT ld_product(i) FROM dual_data;",
-					result = "5")
+					result = "5.0")
 			}
 		)
 public class Product extends UDAF {

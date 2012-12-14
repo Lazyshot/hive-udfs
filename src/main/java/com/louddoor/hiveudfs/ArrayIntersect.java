@@ -1,11 +1,6 @@
 package com.louddoor.hiveudfs;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import org.apache.commons.collections.ListUtils;
 import org.apache.hadoop.hive.ql.exec.Description;
 import org.apache.hadoop.hive.ql.exec.UDF;
@@ -19,51 +14,17 @@ import org.apache.hive.pdk.HivePdkUnitTest;
 		cases = {
 				@HivePdkUnitTest(
 						query = "SELECT ld_array_intersect(array('1','2','3','4'), array('2','4')) FROM onerow;",
-						result = ""),
+						result = "[\"2\",\"4\"]"),
 				@HivePdkUnitTest(
 						query = "SELECT ld_array_intersect(array('1','2','3'), array('4','5')) FROM onerow;",
-						result = ""),
-				@HivePdkUnitTest(
-						query = "SELECT ld_array_intersect(array(1,2,3,4), array(2,4)) FROM onerow;",
-						result = ""),
-				@HivePdkUnitTest(
-						query = "SELECT ld_array_intersect(array(1,2,3), array(4,5)) FROM onerow;",
-						result = "")
+						result = "[]")
 			}
 		)
 public class ArrayIntersect extends UDF {
-	
-	
-	public String[] evaluate(final String[] first, final String[] second)
-	{
-		List<String> result = new ArrayList<String>();
-		Set<String> canAdd = new HashSet<String>(Arrays.asList(first));
-		result.clear();
-		
-		for (String b : second) {
-			if (canAdd.contains(b)) {
-				canAdd.remove(b);
-				result.add(b);
-			}
-		}
-		
-		return result.toArray(new String[0]);
-	}
-	
-	public Integer[] evaluate(final Integer[] first, final Integer[] second)
-	{
-		List<Integer> result = new ArrayList<Integer>();
-		Set<Integer> canAdd = new HashSet<Integer>(Arrays.asList(first));
-		result.clear();
-		
-		for (Integer b : second) {
-			if (canAdd.contains(b)) {
-				canAdd.remove(b);
-				result.add(b);
-			}
-		}
-		
-		return result.toArray(new Integer[0]);
+	@SuppressWarnings("unchecked")
+	public List<String> evaluate(final List<String> first, final List<String> second)
+	{		
+		return ListUtils.intersection(first, second);
 	}
 	
 }
