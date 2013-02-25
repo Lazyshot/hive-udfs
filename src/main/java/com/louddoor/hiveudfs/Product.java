@@ -3,18 +3,8 @@ package com.louddoor.hiveudfs;
 import org.apache.hadoop.hive.ql.exec.Description;
 import org.apache.hadoop.hive.ql.exec.UDAF;
 import org.apache.hadoop.hive.ql.exec.UDAFEvaluator;
-import org.apache.hive.pdk.HivePdkUnitTest;
-import org.apache.hive.pdk.HivePdkUnitTests;
 
 @Description(name="product", value="_FUNC_(str) - Returns product of all grouped values")
-@HivePdkUnitTests(setup = "",
-		cleanup = "",
-		cases = {
-				@HivePdkUnitTest(
-					query = "SELECT ld_product(5) FROM onerow;",
-					result = "5.0")
-			}
-		)
 public class Product extends UDAF {
 	
 	public static class ProdState {

@@ -5,13 +5,8 @@ import java.util.HashMap;
 import org.apache.hadoop.hive.ql.exec.Description;
 import org.apache.hadoop.hive.ql.exec.UDAF;
 import org.apache.hadoop.hive.ql.exec.UDAFEvaluator;
-import org.apache.hive.pdk.HivePdkUnitTests;
 
 @Description(name="agg_map", value="_FUNC_(arg,arg) - Returns map of all the key/value pairs")
-@HivePdkUnitTests(setup = "",
-		cleanup = "",
-		cases = {}
-		)
 public class AggregateMap extends UDAF {
 	
 	public static class MapState {
