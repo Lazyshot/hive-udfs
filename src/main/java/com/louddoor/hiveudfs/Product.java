@@ -7,12 +7,11 @@ import org.apache.hive.pdk.HivePdkUnitTest;
 import org.apache.hive.pdk.HivePdkUnitTests;
 
 @Description(name="product", value="_FUNC_(str) - Returns product of all grouped values")
-@HivePdkUnitTests(setup = "create table dual_data (i int);"
-		+ "insert overwrite table dual_data select 5 from onerow limit 1;",
-		cleanup = "drop table if exists dual_data;",
+@HivePdkUnitTests(setup = "",
+		cleanup = "",
 		cases = {
 				@HivePdkUnitTest(
-					query = "SELECT ld_product(i) FROM dual_data;",
+					query = "SELECT ld_product(5) FROM onerow;",
 					result = "5.0")
 			}
 		)
