@@ -2,6 +2,8 @@ package com.louddoor.hiveudfs;
 
 import java.util.Map;
 import java.util.List;
+import com.google.common.base.Predicates;
+import com.google.common.collect.Maps;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspector;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspectorFactory;
 import org.apache.hadoop.hive.serde2.objectinspector.MapObjectInspector;
@@ -57,23 +59,17 @@ public class FilterMap extends GenericUDF {
 	public Object evaluate(GenericUDF.DeferredObject[] arguments) throws HiveException
 	{
 		Map<Object, Object> map = (Map<Object, Object>) this.mapOI.getMap(arguments[0].get());
-		List<Object> list = (List<Object>) this.listOI.getList(arguments[1].get());
+    List<Object> keys = (List<Object>) this.listOI.getList(arguments[1].get());
 
 		if (map == null) {
 			return null;
 		}
 
-		if (list == null) {
+		if (keys == null) {
 			return null;
 		}
 
-		for (Object key : map.keySet()) {
-			if (!list.contains(key)) {
-				map.remove(key);
-			}
-		}
-
-		return map;
+    return Maps.filterKeys(map, Predicates.in(keys));
 	}
 
 }
